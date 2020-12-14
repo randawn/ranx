@@ -48,9 +48,11 @@ for root, dirs, files in os.walk(folder):
 total_f = len(file_lst)
 print "\rtotal file to parse: %d" % total_f,
 
-step = 10000 if total_f>10000 or total_f==0 else total_f
+step_n = 10000
+step = step_n if (total_f>step_n or total_f==0) else total_f
+# incase OSError: [Errno 7] Argument list too long
 for i in range(0, total_f, step):
-    print "\rtotal file to parse: %d/%d" % (i, total_f),
+    print "\rtotal file to parse: %d/%d          " % (i, total_f),
     sys.stdout.flush()
     f_grp = file_lst[i:i+step]
     wc_out = get_wc_out(f_grp)
@@ -68,7 +70,7 @@ for i in range(0, total_f, step):
         result_d[ft][0] += 1
         result_d[ft][1] += l_cnt
         result_d[ft][2] += b_cnt
-print "\rtotal file to parse: %d" % total_f
+print "\rtotal file to parse: %d          " % total_f
 
 print "FILETYPE: count / line / bytecount"
 for k, v in sorted(result_d.items(), key=lambda x: x[1][0]):
