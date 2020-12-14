@@ -27,9 +27,8 @@ def get_ftype(f):
 
 def get_wc_out(f_lst):
     try:
-        wc_out = subprocess.check_output(['wc', '-lc'] + f_grp)
+        wc_out = subprocess.check_output(['wc', '-lc'] + f_lst)
     except Exception as e:
-        print e
         return ""
     return wc_out
 
