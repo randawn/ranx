@@ -39,9 +39,12 @@ result_d = defaultdict(lambda : [0, 0, 0])
 file_lst = []
 for root, dirs, files in os.walk(folder):
     for f in files:
-        f_name = os.path.realpath(root+'/'+f)
-        if os.path.isfile(f_name):
+        f_name = root+'/'+f
+        if os.path.islink(f_name):
+            result_d["link"][0] += 1
+        elif os.path.isfile(f_name):
             if os.access(f_name, os.R_OK):
+                f_name = os.path.realpath(f_name)
                 file_lst.append(f_name)
             else:
                 result_d["un-readable"][0] += 1
