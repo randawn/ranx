@@ -28,6 +28,8 @@ def get_ftype(f):
 def get_wc_out(f_lst):
     try:
         wc_out = subprocess.check_output(['wc', '-lc'] + f_lst)
+    except OSError as e:
+        raise RuntimeError("set step_n to a smaller value to fix [Argument list too long]")
     except Exception as e:
         return ""
     return wc_out
@@ -50,7 +52,6 @@ print "\rtotal file to parse: %d" % total_f,
 
 step_n = 10000
 step = step_n if (total_f>step_n or total_f==0) else total_f
-# incase OSError: [Errno 7] Argument list too long
 for i in range(0, total_f, step):
     print "\rtotal file to parse: %d/%d          " % (i, total_f),
     sys.stdout.flush()
