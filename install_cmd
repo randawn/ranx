@@ -1,145 +1,36 @@
 
+#################### MISC
+# utils
+sudo apt install vim ruby screen tmux tcsh git
 
-#DDK System Setup(ubuntu 1804)
-## DEV system
-## 3.1
-```
-30  sudo apt install update
-31  sudo apt install dist-upgrade
+#################### BASE platform guide.1.14@595040
+# 2 Development system setup
+# 2.1
+sudo apt-get update
+sudo apt-get dist-upgrade
 
-tools and libraries for building the DDK
-32  sudo apt install bison
-33  sudo apt install flex
-35  sudo apt install gawk
-36  sudo apt install gcc
-37  sudo apt install g++
-38  sudo apt install libclang1-6.0
-39  sudo apt install llvm
-40  sudo apt install m4
-41  sudo apt install patch
+# tools and libraries for building the DDK
+sudo apt-get install bison flex gawk gcc g++ libclang1-10 llvm make
+sudo apt-get install ninja-build m4 meson patch pkg-config
+sudo apt-get install python-is-python3 python3-clang-10 tar zip
 
-42  sudo apt install pkg-config
-43  sudo apt install tar
-44  sudo apt install zip
-45  sudo apt install python-clang-6.0
+# tools and libraries for building dependencies and generating sysroots
+sudo apt install automake bc binfmt-support cmake dpkg-dev
+sudo apt install libelf-dev libncurses5-dev libssl-dev
+sudo apt install mesa-common-dev opencl-headers perl qemu
+sudo apt install qemu-user-static texinfo wget xutils-dev
 
-x86(32-bit) tools and libraries for building the DDK and its dependceies
-46  sudo apt install gcc-i686-linux-gnu
-47  sudo apt install gcc-7-multilib
-48  sudo apt install linux-libc-dev:i386
-49  sudo apt install g++-i686-linux-gnu
-50  sudo apt install g++-7-multilib
+# linux WS DDK
+sudo apt install autopoint gperf intltool libglib2.0-dev
+sudo apt install libltdl-dev libtool python3-libxml2 python3-mako
+sudo apt install xfonts-utils xsltproc x11-xkb-utils
 
-tools and libraries for building dependencies and generating Sysroots
-51  sudo apt install automake
-52  sudo apt install bc
-53  sudo apt install cmake
-54  sudo apt install dpkg-dev
-55  sudo apt install libelf-dev
-56  sudo apt install libncurses5-dev
-57  sudo apt install libssl-dev
-58  sudo apt install mesa-common-dev
-59  sudo apt install opencl-headers
-60  sudo apt install perl
-61  sudo apt install texinfo
-62  sudo apt install wget
-63  sudo apt install xutils-dev
-```
+#################### x86 Platform Guide1.14@595040
+# 3 development system set up
+# 3.1 addtional tools and libraries
+sudo apt install gcc-i686-linux-gnu gcc-9-multilib linux-libc-dev:i386
+sudo apt install g++-i686-linux-gnu g++-9-multilib
+# 4 target system set up
+# addtional packages needed by the DDK and its dependencies
+sudo apt install libdrm-dev libunwind-dev zlib1g-dev
 
-## 4 Target system
-## 4.1
-```
-64  sudo apt install libdrm-dev
-65  sudo apt install libunwind-dev
-66  sudo apt install zlib1g-dev
-67  sudo apt install libdrm-dev:i386
-68  sudo apt install libstdc++-7-dev:i386
-69  sudo apt install libunwind-dev:i386
-70  sudo apt install zlib1g-dev:i386
-```
-
-## 5 Additioal
-## 5.1 ssh
-```
-71  sudo apt install openssh-server
-72  sudo apt install openssh-client
-```
-
-# DDK platform guide(1.13)
-## 2.2 additional tools and lib
-```
-84  sudo apt install gperf
-85  sudo apt install intltool
-86  sudo apt install libglib2.0-dev
-87  sudo apt install libltdl-dev
-88  sudo apt install libtool
-89  sudo apt install ninjia-build
-90  sudo apt install python-libxml2
-91  sudo apt install python-mako
-92  sudo apt install python3-mako
-93  sudo apt install ninja-build
-95  sudo apt install python3-pip
-96  sudo apt install xfonts-utils
-97  sudo apt install xsltproc
-98  sudo apt install x11-xkb-utils
-99  sudo pip3 install meson
-```
-
-## 3.2.11 LLVM_BUILD_DIR
-LLVM tar
-```
-122  wget http:/llvm.org/releases/9.0.0/llvm-9.0.0.src.tar.xz -O llvm-9.0.0.src.tar.xz
-134  mkdir llvm_tarball
-137  cp /mnt/hgfs/
-138  cp /mnt/hgfs/vm_share/*.gz .
-140  cp /mnt/hgfs/vm_share/*.xz . 
-143  mv SPIRV-LLVM-Translator-9.0.0-1.tar.gz spv-9.0.0.tar.gz
-145  md5sum *
-```
-
-## 3.7.2 OpenGL ES GLSL compiler for win
-```
-178  sudo apt install gcc-mingw-w64-i686
-179  sudo apt install g++-mingw-w64-i686
-```
-
-## 5.2.4 running a window manager
-```
-180  sudo apt install dbus-x11
-181  sudo apt install xfwm4
-```
-
-# from fulong wechat OGL tool chain
-```
-151  sudo apt install build-essential
-152* sudo apt install 
-153  sudo apt install libglu1-mesa-dev
-154  sudo apt install freeglut3-dev
-155  sudo apt install libglew-dev
-156  sudo apt install glew-utils
-157  sudo apt build-dep
-161  apt-get build-dep
-
-162  sudo apt install cmake
-163  sudo apt install xorg-dev
-164  sudo apt install libglu1-mesa-dev cmake-qt-gui
-168  sudo apt install clang-6.0
-169  apt build-dep glfw
-170  sudo apt build-dep glfw
-171  sudo apt install python-clang-6.0
-172  pip install clang
-173  pip install python-pip
-174  sudo apt install python-pip
-175  sudo pip install clang
-176  sudo apt build-dep glfw
-```
-
-
-# other utils
-```
-29  sudo apt install vim
-77  sudo apt install ruby
-182  sudo apt install screen
-183  sudo apt install tmux
-184  sudo apt install tcsh
-```
